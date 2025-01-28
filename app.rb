@@ -4,4 +4,5 @@ require 'sqlite3'
 require 'sinatra/reloader'
 require 'becrypt'
 
-bobo
+get('/') do 
+    
