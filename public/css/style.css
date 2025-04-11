@@ -1,0 +1,122 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #1c1c1c;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2 {
+  text-transform: uppercase;
+  margin: 30px 0 15px;
+  font-weight: bold;
+}
+
+main {
+  padding: 20px;
+}
+
+/* Character image */
+.characterpage-img {
+  width: 220px;
+  height: auto;
+  border-radius: 10px;
+  margin: 20px auto;
+  display: block;
+  border: 2px solid #444;
+}
+
+/* Character description section */
+.description {
+  background-color: #2a2a2a;
+  padding: 20px;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 800px;
+  border-radius: 10px;
+  text-align: left;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.description p {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.description-text {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* Table container styling */
+table {
+  width: 95%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background-color: #2a2a2a;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #444;
+}
+
+th {
+  background-color: #444;
+  font-weight: bold;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #333;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #2b2b2b;
+}
+
+/* Character grid (home page) */
+.character-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  padding: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.character-box {
+  background-color: #292929;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.character-box:hover {
+  background-color: #555;
+}
+
+.character-image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+a{
+   color: white;
+   text-decoration: none;
+}

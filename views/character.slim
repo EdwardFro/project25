@@ -1,0 +1,157 @@
+
+
+img class="characterpage-img" src="/img/#{character['image'] || character['name'].downcase.gsub(' ', '_') + '.png'}" alt=character['name']
+
+h1 class="title" = character['name']
+
+
+div.description
+  p.description-text = character['description']
+  p.tier = "Tier: #{character['tier']}"
+  p.input-type = "Input Type: #{character['input_type']}"
+  p.difficulty = "Ease of Use: #{character['type']}"
+  //if logged in user - button to save character
+  //if logged in admin - able to edit data of character 
+
+h2 Normals
+table.normals
+  thead
+    tr
+      th Move Name
+      th Command
+      th Damage
+      th Startup
+      th Active
+      th Recovery
+      th Total
+      th On Hit
+      th On Block
+  tbody
+    - normals = moves.select { |move| move['moveType'] == 'normal' }
+    - normals.each do |move|
+      tr
+        td = move['moveName']
+        td = move['numCmd']
+        td = move['dmg']
+        td = move['startup']
+        td = move['active']
+        td = move['recovery']
+        td = move['total']
+        td = move['onHit']
+        td = move['onBlock']
+
+
+h2 Specials
+table.specials
+  thead
+    tr
+      th Move Name
+      th Command
+      th Damage
+      th Startup
+      th Active
+      th Recovery
+      th Total
+      th On Hit
+      th On Block
+
+  tbody
+    - specials = moves.select { |move| move['moveType'] == 'special' }
+    - specials.each do |move|
+      tr
+        td = move['moveName']
+        td = move['numCmd']
+        td = move['dmg']
+        td = move['startup']
+        td = move['active']
+        td = move['recovery']
+        td = move['total']
+        td = move['onHit']
+        td = move['onBlock']
+
+h2 Supers
+table.supers
+  thead
+    tr
+      th Move Name
+      th Command
+      th Damage
+      th Startup
+      th Active
+      th Recovery
+      th Total
+      th On Hit
+      th On Block
+    
+  tbody
+    - supers = moves.select { |move| move['moveType'] == 'super' }
+    - supers.each do |move|
+      tr
+        td = move['moveName']
+        td = move['numCmd']
+        td = move['dmg']
+        td = move['startup']
+        td = move['active']
+        td = move['recovery']
+        td = move['total']
+        td = move['onHit']
+        td = move['onBlock']
+    
+
+h2 Throws
+table.throws
+  thead
+    tr
+      th Move Name
+      th Command
+      th Damage
+      th Startup
+      th Active
+      th Recovery
+      th Total
+      th On Hit
+      th On Block
+      
+  tbody
+    - throws = moves.select { |move| move['moveType'] == 'throw' }
+    - throws.each do |move|
+      tr
+        td = move['moveName']
+        td = move['numCmd']
+        td = move['dmg']
+        td = move['startup']
+        td = move['active']
+        td = move['recovery']
+        td = move['total']
+        td = move['onHit']
+        td = move['onBlock']
+        
+
+h2 Drive System
+table.drive
+  thead
+    tr
+      th Move Name
+      th Command
+      th Damage
+      th Startup
+      th Active
+      th Recovery
+      th Total
+      th On Hit
+      th On Block
+      
+  tbody
+    - drive_moves = moves.select { |move| move['moveType'] == 'drive' }
+    - drive_moves.each do |move|
+      tr
+        td = move['moveName']
+        td = move['numCmd']
+        td = move['dmg']
+        td = move['startup']
+        td = move['active']
+        td = move['recovery']
+        td = move['total']
+        td = move['onHit']
+        td = move['onBlock']
+        

@@ -1,0 +1,9 @@
+h1 CHOOSE YOUR FIGHTER
+
+.character-grid
+  - characters.each do |char|
+    a href="/character/#{char['id']}" class="character-box"
+      img src="/img/#{char['name']}.png" alt=char['name'] class="character-image"
+      span= char['name']
+
+

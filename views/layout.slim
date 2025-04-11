@@ -3,15 +3,25 @@ html lang="en"
     head
         meta charset="UTF-8"/
         meta name="viewport" content="width=device-width, initial-scale=1.0"/
-        title Document
-    body
+        title SF6 FRAMEDATA
+        link rel="stylesheet" href="/css/style.css"
+    body 
+       - db = db_connection
+- db.results_as_hash = true
+- user = session[:user_id] ? db.get_first_row("SELECT * FROM users WHERE id = ?", session[:user_id]) : nil
 
-        main 
-            ==yield
+header
+  a href="/" FULL ROSTER
+  
+  - if user
+    | Logged in as #{user['user']}
+    
+    a href="/logout" LOG OUT
+    - if user['authority'] == 'admin'
+      | (Admin)
+  - else
+    a href="/login" LOG IN
+    a href="/signup" SIGN UP
 
-        footer 
-            p On Counter Hit: +2 On-Hit Advantage
-            p On Punish Counter: +4 On-Hit Advantage
-            p During Drive Rush: +4 On-Hit Advantage, +4 On-Block Advantage 
-
-            p On Burnt-out opponent: +4 On-Block Advantage, Takes Chip Damage
+main 
+     ==yield
