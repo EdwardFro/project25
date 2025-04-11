@@ -1,0 +1,11 @@
+/like start.slim but only with saved characters
+
+h1 YOUR SAVED FIGHTERS
+
+.character-grid
+  - characters.each do |char|
+    a href="/character/#{char['id']}" class="character-box"
+      img src="/img/#{char['name']}.png" alt=char['name'] class="character-image"
+      span= char['name']
+
+

@@ -65,9 +65,9 @@ post('/signup') do
   existing = db.get_first_row("SELECT id FROM users WHERE user = ?", username)
 
   if existing
-    redirect('/login') # User exists
+    redirect('/login')
   elsif password != password_confirm
-    redirect('/error_s') # Passwords don't match
+    redirect('/error_s')
   else
     digest = BCrypt::Password.create(password)
     db.execute("INSERT INTO users (user, pwd_digest) VALUES (?, ?)", [username, digest])
@@ -81,4 +81,11 @@ end
 
 get('/error_l') do
   slim(:error_l)
+end
+
+get('/saved_fighters') do
+  db = db_connection
+  db.results_as_hash = true
+  characters = db.execute('SELECT id, name FROM characters ORDER BY id ASC')
+  slim(:saved_fighters, locals: { characters: characters })
 end

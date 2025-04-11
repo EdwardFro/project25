@@ -11,17 +11,17 @@ html lang="en"
 - user = session[:user_id] ? db.get_first_row("SELECT * FROM users WHERE id = ?", session[:user_id]) : nil
 
 header
-  a href="/" FULL ROSTER
-  
+  a href="/" FULL ROSTER      
+  a href="/saved_fighters" SAVED FIGHTERS       
   - if user
     | Logged in as #{user['user']}
     
-    a href="/logout" LOG OUT
+    a href="/logout" LOG OUT          
     - if user['authority'] == 'admin'
       | (Admin)
   - else
-    a href="/login" LOG IN
-    a href="/signup" SIGN UP
+    a href="/login" LOG IN             
+    a href="/signup" SIGN UP              
 
 main 
      ==yield
