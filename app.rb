@@ -82,21 +82,19 @@ post('/signup') do
   existing_user = db.get_first_row("SELECT id FROM users WHERE user = ?", username)
 
   if existing_user
-    redirect('/login') # användarnamn redan taget
+    redirect('/login')
   elsif password != password_confirm
-    redirect('/error') # lösenorden matchar inte
+    redirect('/error') 
   else
     digest = BCrypt::Password.create(password)
     db.execute("INSERT INTO users (user, pwd_digest) VALUES (?, ?)", [username, digest])
     
-    # Logga in direkt efter registrering
     user_id = db.last_insert_row_id
     session[:user_id] = user_id
 
     redirect('/')
   end
 end
-
 
 
 get('/error') do
