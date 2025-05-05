@@ -120,3 +120,87 @@ a{
    color: white;
    text-decoration: none;
 }
+
+.header-bar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #1c1c1c;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.header-item {
+  background-color: #292929;
+  margin: 5px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-item:hover {
+  background-color: #444;
+}
+
+.header-item a, .header-item span {
+  color: white;
+  text-decoration: none;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #222;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  gap: 1rem;
+  margin-right: 3rem;
+  margin-left: 1rem;
+}
+
+.nav-box {
+  background-color: #333;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+.nav-box a,
+.nav-box span {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.header-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+main {
+  padding-top: 100px; /* så inte main döljs bakom headern */
+}

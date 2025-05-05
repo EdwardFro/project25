@@ -1,0 +1,50 @@
+h1 Edit Character - #{character["name"]}
+
+form action="/update_character/#{character['id']}" method="post"
+  label Description:
+  textarea name="description" = character["description"]
+  br
+  label Tier:
+  input type="text" name="tier" value=character["tier"]
+  br
+  label Input Type:
+  input type="text" name="input_type" value=character["input_type"]
+  br
+  label Ease of Use:
+  input type="text" name="type" value=character["type"]
+  br
+  button type="submit" Update
+
+hr
+
+h2 Edit Attacks
+- moves.each do |move|
+  form action="/update_move/#{move['id']}" method="post"
+    strong #{move["moveName"]}
+    br
+    label Command:
+    input type="text" name="numCmd" value=move["numCmd"]
+    br
+    label Damage:
+    input type="text" name="dmg" value=move["dmg"]
+    br
+    label Startup:
+    input type="text" name="startup" value=move["startup"]
+    br
+    label Active:
+    input type="text" name="active" value=move["active"]
+    br
+    label Recovery:
+    input type="text" name="recovery" value=move["recovery"]
+    br
+    label Total:
+    input type="text" name="total" value=move["total"]
+    br
+    label On Hit:
+    input type="text" name="onHit" value=move["onHit"]
+    br
+    label On Block:
+    input type="text" name="onBlock" value=move["onBlock"]
+    br
+    button type="submit" Update
+    hr

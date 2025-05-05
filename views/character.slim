@@ -10,8 +10,25 @@ div.description
   p.tier = "Tier: #{character['tier']}"
   p.input-type = "Input Type: #{character['input_type']}"
   p.difficulty = "Ease of Use: #{character['type']}"
-  //if logged in user - button to save character
-  //if logged in admin - able to edit data of character 
+  
+  - if @current_user
+    - db = db_connection
+    - saved = db.get_first_row("SELECT 1 FROM saved_characters WHERE user_id = ? AND character_id = ?", [@current_user['id'], character['id']])
+  
+    - if saved
+      form action="/unsave_character/#{character['id']}" method="post"
+        input type="hidden" name="character_id" value=character['id']
+        button type="submit" Remove from saved
+    - else
+      form action="/save_character" method="post"
+        input type="hidden" name="character_id" value=character['id']
+        button type="submit" Save this character
+
+
+  - if admin?
+    form action="/edit_character/#{character['id']}" method="get"
+      button type="submit" Edit character data
+
 
 h2 Normals
 table.normals
