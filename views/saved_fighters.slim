@@ -3,7 +3,7 @@ h1 YOUR SAVED FIGHTERS
 - if !@current_user
   p Log in to save characters.
 - elsif characters.empty?
-  p You haven't saved any fighters yet.
+  p You don't have any saved fighters
 - else
   .character-grid
     - characters.each do |char|

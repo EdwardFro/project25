@@ -1,6 +1,6 @@
 
 
-img class="characterpage-img" src="/img/#{character['image'] || character['name'].downcase.gsub(' ', '_') + '.png'}" alt=character['name']
+img class="characterpage-img" src="/img/#{character['name'].downcase + '.png'}" alt=character['name']
 
 h1 class="title" = character['name']
 
